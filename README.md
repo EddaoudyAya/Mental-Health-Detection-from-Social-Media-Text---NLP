@@ -149,7 +149,7 @@ The baseline model remains useful because it is faster, simpler, and more interp
 ## Project Structure
 
 ```text
-mental-health-detection-nlp/
+Mental-Health-Detection-from-Social-Media-Text---NLP/
 │
 ├── app/
 │   └── streamlit_compare.py
@@ -170,3 +170,108 @@ mental-health-detection-nlp/
 │
 ├── requirements.txt
 └── README.md
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/EddaoudyAya/Mental-Health-Detection-from-Social-Media-Text---NLP.git
+cd Mental-Health-Detection-from-Social-Media-Text---NLP
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate the environment.
+
+For Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+For Linux or macOS:
+
+```bash
+source venv/bin/activate
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Data
+
+The dataset files are not included in this repository because of size and ethical considerations.
+
+To reproduce the project, the preprocessed data should be placed inside the `data/` folder.
+
+The data preparation steps are available in the notebooks inside the `notebooks/` folder.
+
+---
+
+## Training
+
+Each model can be trained using its corresponding notebook:
+
+- `tf_idf_linear_svm_calibrated.ipynb`
+- `bert_model.ipynb`
+- `roberta_model.ipynb`
+
+The trained models are saved locally in the `models/` folder.
+
+The `models/` folder is not uploaded to GitHub because trained Transformer models are usually large.
+
+---
+
+## Running the Application
+
+After training the models, run the Streamlit application:
+
+```bash
+streamlit run app/streamlit_compare.py
+```
+
+The application allows users to:
+
+- Enter a text sample
+- Compare predictions from different models
+- Display prediction probabilities
+- Observe how each model classifies the same input
+
+---
+
+## Evaluation Metrics
+
+The project uses three main evaluation metrics:
+
+- **Accuracy:** measures the overall percentage of correct predictions.
+- **Macro F1-score:** calculates the average F1-score across all classes equally.
+- **Weighted F1-score:** calculates the F1-score while considering the number of samples in each class.
+
+Macro F1-score is especially important in this project because the dataset is imbalanced.
+
+---
+
+## Ethical Considerations
+
+This project deals with sensitive mental health-related text. Therefore, the following limitations must be considered:
+
+- The system is not a medical diagnosis tool.
+- The predictions should not be used for medical decisions.
+- The results are only intended for academic analysis and experimentation.
+- The dataset may contain bias because it comes from social media text.
+- Any real-world use would require medical expertise, ethical validation, and stronger privacy safeguards.
+
+
